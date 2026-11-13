@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Fox Adventure</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #000; }
+canvas { display: block; width: 100%; height: 100%; image-rendering: pixelated; image-rendering: crisp-edges; }
+#touch-controls {
+  display: none; position: fixed; bottom: 0; left: 0; right: 0; height: 120px;
+  z-index: 10; touch-action: none; user-select: none; -webkit-user-select: none;
+}
+.touch-btn {
+  position: absolute; width: 60px; height: 60px; border-radius: 50%;
+  background: rgba(255,255,255,0.25); border: 2px solid rgba(255,255,255,0.5);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 24px; font-weight: bold;
+}
+.touch-btn:active { background: rgba(255,255,255,0.5); }
+#btn-left { left: 10px; bottom: 10px; }
+#btn-right { left: 85px; bottom: 10px; }
+#btn-up { left: 47px; bottom: 75px; }
+#btn-run { right: 10px; bottom: 10px; }
+#btn-jump { right: 80px; bottom: 75px; }
+@media (pointer: coarse) { #touch-controls { display: block; } }
+</style>
+</head>
+<body>
+<canvas id="game"></canvas>
+<div id="touch-controls">
+  <div class="touch-btn" id="btn-left">◀</div>
+  <div class="touch-btn" id="btn-right">▶</div>
+  <div class="touch-btn" id="btn-up">▲</div>
+  <div class="touch-btn" id="btn-jump">J</div>
+  <div class="touch-btn" id="btn-run">R</div>
+</div>
+<script src="src/game.js"></script>
+</body>
+</html>
