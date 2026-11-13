@@ -42,8 +42,7 @@ const groundTile = grid[10][2];
 assert(isSolid(groundTile.type), 'Ground tile should be solid');
 assert(rectOverlap(player.x, player.y, player.w, player.h, 32, 160, 16, 16), 'Player should overlap ground tile');
 
-// Test 2: Player below floating platform
-const platformPlayer = { x: 80, y: 112, w: 14, h: 16 }; // below platform at row 7
+// Test 2: Tile below floating platform is air
 const belowPlatform = grid[8][5];
 assert(!isSolid(belowPlatform.type), 'Tile below platform should be air');
 
