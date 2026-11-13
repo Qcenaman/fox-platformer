@@ -2,7 +2,6 @@
 import { KEY } from './constants.js';
 
 const keys = {};
-let gamepadIndex = null;
 
 function setupKeyboard() {
   window.addEventListener('keydown', e => {
@@ -45,7 +44,7 @@ function setupTouch() {
     if (!el) continue;
     el.addEventListener('touchstart', e => { e.preventDefault(); keys[key] = true; });
     el.addEventListener('touchend', e => { e.preventDefault(); keys[key] = false; });
-    el.addEventListener('touchcancel', e => { keys[key] = false; });
+    el.addEventListener('touchcancel', () => { keys[key] = false; });
   }
 }
 
@@ -53,7 +52,6 @@ function pollGamepad() {
   const gps = navigator.getGamepads ? navigator.getGamepads() : [];
   for (let i = 0; i < gps.length; i++) {
     if (gps[i]) {
-      gamepadIndex = i;
       const gp = gps[i];
       // D-pad and left stick
       keys[KEY.LEFT] = gp.axes[0] < -0.5 || gp.buttons[14]?.pressed;

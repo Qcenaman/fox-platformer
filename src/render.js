@@ -138,22 +138,6 @@ const SPRITE_COIN = [
   '...666666...',
 ];
 
-// Flag (16x48 for pole + flag)
-const SPRITE_FLAG_POLE = [
-  '...............',
-  '...............',
-  '...............',
-  '...............',
-  '...............',
-  '...............',
-  '...............',
-  '...............',
-  '...............',
-  '...............',
-  '...............',
-  '...............',
-];
-
 // Draw a pixel sprite from a string array
 function drawSprite(ctx, sprite, px, py, palette, scaleX = 1, scaleY = 1) {
   for (let y = 0; y < sprite.length; y++) {

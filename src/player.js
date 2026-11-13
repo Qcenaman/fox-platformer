@@ -1,5 +1,5 @@
 // Player physics and state management
-import { KEY, STATE } from './constants.js';
+import { KEY, T } from './constants.js';
 import { collideTiles, hitBlock, breakBlock, useBlock } from './tiles.js';
 
 const GRAVITY = 0.45;
@@ -126,7 +126,6 @@ function updatePlayer(player, input, tiles, levelWidth, enemies, items, onCoin, 
     if (rectsOverlap(player, enemy)) {
       // Stomp check: player falling and above enemy
       const playerBottom = player.y + player.h;
-      const enemyTop = enemy.y;
       const playerAbove = playerBottom - enemy.y < 10 && player.vy > 0;
 
       if (player.invincible > 0) {

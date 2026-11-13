@@ -4,6 +4,8 @@
 // [ ] = pipe top, { } = pipe body, P = platform
 // F = flag, | = flag pole, D = decoration, ^ = spike
 
+import { T, TILE } from './constants.js';
+
 const LEVELS = [
   // Level 1 - Green Hills
   [

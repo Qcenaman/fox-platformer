@@ -1,14 +1,14 @@
 // Main game loop and state management
-import { W, H, TILE, STATE, KEY } from './constants.js';
+import { W, TILE, STATE, KEY, T, PAL } from './constants.js';
 import { isDown, pollGamepad, setup } from './input.js';
-import { LEVELS, parseLevel, getSpawn, getFlagPos, getLevelWidth } from './levels.js';
+import { LEVELS, parseLevel, getSpawn, getFlagPos } from './levels.js';
 import { createPlayer, updatePlayer } from './player.js';
-import { createWalker, createShell, updateEnemy, stompEnemy, ENEMY_W, ENEMY_H } from './enemies.js';
-import { createPowerUp, createCoin, createCoinBlockCoin, updateItem, ITEM_W, ITEM_H } from './items.js';
+import { createWalker, createShell, updateEnemy } from './enemies.js';
+import { updateItem } from './items.js';
 import { createCamera, updateCamera } from './camera.js';
-import { initAudio, startMusic, stopMusic, sfxJump, sfxCoin, sfxStomp, sfxPowerUp, sfxDeath, sfxBump, sfxBreak, sfx1UP } from './audio.js';
+import { initAudio, startMusic, stopMusic, sfxCoin, sfxPowerUp, sfxDeath, sfx1UP } from './audio.js';
 import {
-  canvas, ctx, drawSprite, drawTile, drawBackground,
+  ctx, drawSprite, drawTile, drawBackground,
   drawHUD, drawTitleScreen, drawGameOverScreen,
   drawLevelComplete, drawPauseScreen,
   SPRITE_FOX_SMALL, SPRITE_FOX_BIG, SPRITE_MUSHROOM,
@@ -340,7 +340,6 @@ function renderGame() {
       const py = player.y - (camera.y || 0);
       if (player.facing === -1) {
         // Flip sprite by drawing from right
-        const spriteW = sprite[0].length;
         for (let y = 0; y < sprite.length; y++) {
           for (let x = 0; x < sprite[y].length; x++) {
             const ch = sprite[y][sprite[y].length - 1 - x];

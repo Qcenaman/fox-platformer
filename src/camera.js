@@ -1,5 +1,5 @@
 // Camera: follows player, never scrolls backwards
-import { W, TILE } from './constants.js';
+import { W } from './constants.js';
 
 function createCamera() {
   return { x: 0, y: 0 };
