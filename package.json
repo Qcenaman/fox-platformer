@@ -1,0 +1,6 @@
+{
+  "name": "fox-platformer",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "NES-style 2D platformer game"
+}
